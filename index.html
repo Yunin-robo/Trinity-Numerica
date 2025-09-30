@@ -58,25 +58,32 @@
       margin-bottom: 20px;
     }
 
-    h2 {
+  h2 {
   font-family: 'Great Vibes', cursive;
-  color: #003366;
   font-size: 4.5em;
   margin-bottom: 20px;
   font-weight: bold;
-  position: relative;
   text-align: center;
+
+  background: linear-gradient(90deg, #FFD700 0%, #FFD700 50%, #003366 50%, #001a4d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.6), 
+               0 0 12px rgba(0, 51, 102, 0.8);
 }
 
 h2::after {
-  content: "✦ ✧ ✦";  /* decorative flourish */
+  content: "✦ ✧ ✦";
   display: block;
   margin-top: 12px;
-  font-size: 1.2em;
+  font-size: 1.1em;
   letter-spacing: 6px;
-  color: #FEFEBE; /* golden touch */
-  text-shadow: 0px 0px 6px rgba(0,0,0,0.3);
+  color: #FFD700;
+  text-shadow: 0px 0px 8px rgba(255, 215, 0, 0.7),
+               0px 0px 12px rgba(0, 51, 102, 0.7);
 }
+
 
 
 
