@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trinity Numerica 2025</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+    body {
+      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: linear-gradient(to bottom, #003366 0%, #0047AB 50%, #DAA520 80%, #FFFACD 100%);
+      margin: 0;
+      padding: 20px;
+      color: #333;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style="stop-color:rgba(255,255,255,0.05);stop-opacity:1" /><stop offset="100%" style="stop-color:rgba(218,165,32,0.03);stop-opacity:1" /></radialGradient><path d="M10 10 L90 10 L90 90 L10 90 Z" fill="url(%23grad1)" /></defs><circle cx="50" cy="50" r="30" fill="none" stroke="rgba(0, 51, 102, 0.05)" stroke-width="1" /><circle cx="20" cy="20" r="2" fill="rgba(218, 165, 32, 0.08)" /><circle cx="80" cy="80" r="2" fill="rgba(218, 165, 32, 0.08)" /><circle cx="50" cy="85" r="2" fill="rgba(0, 51, 102, 0.08)" /></svg>');
+      opacity: 0.7;
+      z-index: -1;
+      background-size: 200px 200px;
+      background-repeat: repeat;
+      pointer-events: none;
+    }
+
+    .page-container {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 50px;
+      background-color: #FFF8DC;
+      border: 5px solid #DAA520;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 50px;
+      padding-bottom: 30px;
+      border-bottom: 3px dashed #8B4513;
+    }
+
+    .header-logo {
+      max-width: 250px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      color: #003366;
+      font-size: 3.8em;
+      margin-bottom: 10px;
+      font-weight: bold;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 5px;
+      background-color: #DAA520;
+      border-radius: 3px;
+    }
+
+    .tagline {
+      font-size: 1.6em;
+      color: #5C4033;
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+      margin-top: 15px;
+    }
+
+    .section-banner-header {
+      font-family: 'Playfair Display', serif;
+      color: #003366;
+      font-size: 2.5em;
+      margin-top: 40px;
+      margin-bottom: 25px;
+      background: #FFF8DC;
+      border: 4px solid #DAA520;
+      border-radius: 10px;
+      padding: 15px 20px;
+      text-align: center;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    .subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7em;
+      color: #5C4033;
+      font-weight: bold;
+      margin-top: 25px;
+      margin-bottom: 10px;
+      padding-left: 10px;
+      border-left: 5px solid #DAA520;
+    }
+
+    .content-section {
+      background-color: rgba(255, 255, 255, 0.98);
+      padding: 40px;
+      margin-bottom: 35px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+      border: 2px solid #D2B48C;
+    }
+
+    .content-section p, .content-section ul {
+      font-size: 1.2em;
+      line-height: 1.8;
+    }
+
+    .content-section ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .content-section li {
+      margin-bottom: 15px;
+      padding-left: 40px;
+      position: relative;
+    }
+
+    .content-section li::before {
+      content: '\221E';
+      position: absolute;
+      left: 0;
+      color: #DAA520;
+      font-weight: bold;
+      font-size: 1.4em;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 3px dashed #8B4513;
+      font-size: 1.5em;
+      color: #003366;
+      font-weight: bold;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .footer-contact-info {
+      margin-top: 20px;
+      font-size: 1em;
+      color: #5C4033;
+      font-family: 'Lato', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">
+    <div class="header">
+      <img src="https://firebasestorage.googleapis.com/v0/b/matheforces.appspot.com/o/Images%2Ffasih3.jpg?alt=media&token=fa373832-57fb-4172-86bb-ca117e108b3a" alt="Trinity Numerica 2025 Logo" class="header-logo">
+      <h2>Trinity Numerica 2025</h2>
+      <p class="tagline">Celebrating Mathematical Excellence</p>
+    </div>
+	
+<div class="content-section">
+  <h3 class="section-banner-header">Invitation Letter</h3>
+
+  <p>Dear Students,</p>
+
+  <p>
+    It gives me great pleasure to invite you to the <strong>Trinity Intra-School Math Competition</strong>. 
+    At Trinity, we believe mathematics is not only about numbers but also about building 
+    problem-solving skills, logical reasoning, and a spirit of healthy competition.
+  </p>
+
+  <p>
+    This event is designed to challenge our students, encourage collaboration, 
+    and showcase the talent and creativity that exists within our school. 
+    I look forward to seeing our young mathematicians engage with enthusiasm 
+    and make us proud with their efforts.
+  </p>
+
+  <p>
+    Let this competition be a celebration of curiosity, perseverance, 
+    and the joy of learning.
+  </p>
+
+  <div style="margin-top: 40px;">
+    <p>Sincerely,</p>
+    <p><strong>Taimur K. Bandey</strong><br>Head of School</p>
+  </div>
+</div>
+
+
+    <div class="content-section">
+      <h3 class="section-banner-header">Competition Categories & Format</h3>
+
+      <h4 class="subtitle">Junior Division (Grades 3–5)</h4>
+      <ul>
+        <li>Buzzer Round (x3): Fun mental math and puzzles. +10 for correct, -5 for wrong.</li>
+        <li>Rapid Fire Round: 2 minutes per team. +10 per correct, no negatives.</li>
+      </ul>
+
+      <h4 class="subtitle">Intermediate Division (Grades 6–8)</h4>
+      <ul>
+        <li>Written Test: 20–25 IQ & logical reasoning questions. Top scorers form finalist teams.</li>
+        <li>Final Rapid Fire: 2 minutes per team. +10 per correct, no negatives.</li>
+      </ul>
+
+      <h4 class="subtitle">Advanced Division (O/A Levels, DP & High School)</h4>
+      <ul>
+        <li>Research Challenge: Teams solve an open-ended math problem and present findings.</li>
+        <li>Presentation & Opposition: Debate-style critique with Reporter, Opponent, Reviewer, Observer roles.</li>
+        <li>Final Rapid Fire: 120 seconds per team. +10 per correct, no negatives.</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+  <h3 class="section-banner-header">Advance Division Structure</h3>
+  
+  <p><strong>Team Formation:</strong> A team consists of 2 to 3 students.</p>
+  
+  <p><strong>Problem Release:</strong> 3 challenging math problems of varying difficulty are provided to the teams two-three weeks before the competition:</p>
+  <ul>
+    <li><strong>Level 1:</strong> For O1, O2, 9th, and 10th</li>
+    <li><strong>Level 2:</strong> For O3, 10th, 11th</li>
+    <li><strong>Level 3:</strong> For A1, A2, 12th, DP</li>
+  </ul>
+
+  <p><strong>Solution Preparation:</strong> Teams must prepare detailed solutions to these problems in advance of the competitions.</p>
+
+  <p><strong>Research Debates:</strong> The core of the tournament involves structured research debates where teams take turns in specific roles.</p>
+
+  <h4 class="subtitle">Roles in Debate Rounds</h4>
+  <ul>
+    <li><strong>Reporter:</strong> Presents the main ideas and results obtained from solving the problem.</li>
+    <li><strong>Opponent:</strong> Analyzes the Reporter's solution, pointing out inaccuracies and errors in the paper and presentation.</li>
+    <li><strong>Reviewer:</strong> Evaluates the performance of both the Reporter and the Opponent.</li>
+    <li><strong>Observer:</strong> Makes important remarks or observations that may have been missed by the other roles.</li>
+  </ul>
+</div>
+
+
+    <div class="content-section">
+  <h3 class="section-banner-header">Objectives</h3>
+
+  <p><strong>Stimulate Interest in Mathematics:</strong> To foster interest in mathematics and its applications.</p>
+
+  <p><strong>Develop Skills:</strong> To cultivate scientific thinking, communication skills, and teamwork among students.</p>
+
+  <p><strong>Promote Exchange:</strong> To support social and cultural exchange between high school students in a stimulating environment.</p>
+</div>
+
+
+    <div class="content-section">
+      <h3 class="section-banner-header">Scoring System</h3>
+      <ul>
+        <li><strong>Junior:</strong> Buzzer 50%, Rapid Fire 50%</li>
+        <li><strong>Intermediate:</strong> Written Test 60%, Rapid Fire 40%</li>
+        <li><strong>Advanced:</strong> Research 50%, Presentation/Opposition 30%, Rapid Fire 20%</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h3 class="section-banner-header">Competition Schedule</h3>
+      <ul>
+        <li><strong>Day 1 – Friday, 24th Oct 2025:</strong> Junior & Intermediate Rounds</li>
+        <li><strong>Day 2 – Saturday, 25th Oct 2025:</strong> Advanced Division</li>
+        <li><strong>Award Ceremony – Tuesday, 28th Oct 2025:</strong> Trophies + Certificates</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+  <h3 class="section-banner-header">Code of Conduct</h3>
+  <p>To ensure a fair, respectful, and productive environment for all participants and staff, the following code of conduct must be observed:</p>
+  <p><strong>Respect:</strong> Treat all participants, organizers, judges, and staff with courtesy and respect.</p>
+  <p><strong>Integrity:</strong> Uphold the highest standards of academic honesty. Cheating, plagiarism, or any form of academic dishonesty will not be tolerated and may result in disqualification.</p>
+  <p><strong>Sportsmanship:</strong> Engage in fair play and demonstrate good sportsmanship at all times. Celebrate success and handle challenges with grace.</p>
+  <p><strong>Adherence to Rules:</strong> Follow all competition rules, instructions, and schedules provided by the organizers.</p>
+  <p><strong>Appropriate Conduct:</strong> Maintain a respectful and conducive environment for learning and competition. Avoid disruptive behavior.</p>
+  <p><strong>Use of Resources:</strong> Use only permitted resources during competition rounds. Unauthorized materials or devices are strictly forbidden.</p>
+</div>
+
+<div class="content-section">
+  <h3 class="section-banner-header">Registration</h3>
+  
+  <p><strong>Deadline:</strong> 20th October 2025</p>
+  <p><strong>How to Register:</strong> Please complete the registration form using the link below:</p>
+  
+  <p style="text-align: center; margin-top: 25px;">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScl0mt7LqyclN3u2e9tLT4V5o1PYyQzW_uLcBNsDyuxLZ76rw/viewform?usp=header" target="_blank" 
+       style="display: inline-block; background-color: #003366; color: #fff; 
+              padding: 12px 25px; font-size: 1.2em; font-weight: bold; 
+              border-radius: 8px; text-decoration: none; 
+              box-shadow: 0 5px 12px rgba(0,0,0,0.2); 
+              transition: background-color 0.3s ease;">
+      📝 Register Here
+    </a>
+  </p>
+</div>
+
+
+
+    <div class="footer">
+      Good Luck to All Participants!
+      <div class="footer-contact-info">
+        <p><strong>Contact:</strong> </p>
+        <p><strong>President:</strong> Fasi-Ur-Rehman </p>
+        <p>📞 +92 3304233094</p>
+        <p><strong>Vice-President:</strong> Ajar Aleem </p>
+        <p>📞 +92 3291189909</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
