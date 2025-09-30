@@ -59,14 +59,25 @@
     }
 
     h2 {
-  font-family: 'Great Vibes', cursive;  /* changed */
+  font-family: 'Great Vibes', cursive;
   color: #003366;
-  font-size: 4.2em; /* slightly bigger for emphasis */
-  margin-bottom: 10px;
-  font-weight: bold; /* script fonts look better without bold */
+  font-size: 4.5em;
+  margin-bottom: 20px;
+  font-weight: bold;
   position: relative;
-  padding-bottom: 15px;
+  text-align: center;
 }
+
+h2::after {
+  content: "✦ ✧ ✦";  /* decorative flourish */
+  display: block;
+  margin-top: 12px;
+  font-size: 1.2em;
+  letter-spacing: 6px;
+  color: #FFD700; /* golden touch */
+  text-shadow: 0px 0px 6px rgba(0,0,0,0.3);
+}
+
 
 
     h2::after {
