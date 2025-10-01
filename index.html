@@ -65,9 +65,32 @@
     .diagonal { animation: float-diagonal 18s infinite ease-in-out; }
   </style>
 </head>
+<body>
 
+  <!-- Floating math symbols/equations on edges -->
+  <!-- Left bar -->
+  <div class="symbol up" style="top:10%; left:2%;">∫₀^∞ e<sup>-x²</sup> dx = √π/2</div>
+  <div class="symbol down" style="top:30%; left:2%;">limₙ→∞ (1+1/n)ⁿ = e</div>
+  <div class="symbol diagonal" style="top:55%; left:2%;">∇·𝐄 = ρ/ε₀</div>
+  <div class="symbol up" style="top:80%; left:2%;">ζ(s) = ∑ 1/nˢ</div>
 
+  <!-- Right bar -->
+  <div class="symbol down" style="top:15%; right:2%;">iħ ∂ψ/∂t = Ĥψ</div>
+  <div class="symbol up" style="top:40%; right:2%;">det(A - λI) = 0</div>
+  <div class="symbol diagonal" style="top:65%; right:2%;">∮ E·dl = -dΦ/dt</div>
+  <div class="symbol left" style="top:85%; right:2%;">Γ(z) = ∫₀^∞ t<sup>z-1</sup>e<sup>-t</sup>dt</div>
 
+  <!-- Top bar -->
+  <div class="symbol right" style="top:5%; left:20%;">a² + b² = c²</div>
+  <div class="symbol diagonal" style="top:5%; left:50%;">Σ i = n(n+1)/2</div>
+  <div class="symbol left" style="top:5%; left:75%;">π ≈ 3.14159…</div>
+
+  <!-- Bottom bar -->
+  <div class="symbol left" style="bottom:5%; left:25%;">F = ma</div>
+  <div class="symbol right" style="bottom:5%; left:55%;">E = mc²</div>
+  <div class="symbol diagonal" style="bottom:5%; left:75%;">∫ e^x dx = e^x + C</div>
+  <div class="symbol up" style="bottom:5%; right:20%;">∞</div>
+</body>
 
 
 <body>
