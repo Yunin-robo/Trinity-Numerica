@@ -8,64 +8,59 @@
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Great+Vibes&display=swap');
 
     body {
-      font-family: 'Lato', sans-serif;
-      background: linear-gradient(to bottom, #1E3A8A, #FFD54F, #3B5998, #DAA520, #3B5998, #FFD54F, #1E3A8A);
+      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: linear-gradient(
+        to bottom,
+        #1E3A8A 0%,    /* deep navy top */
+        #FFD54F 12%,   /* yellow tint top */
+        #3B5998 35%,   /* rich blue */
+        #DAA520 55%,   /* golden middle */
+        #3B5998 75%,   /* rich blue again */
+        #FFD54F 88%,   /* yellow tint bottom */
+        #1E3A8A 100%   /* deep navy bottom */
+      );
       margin: 0;
       padding: 20px;
-      min-height: 100vh;
-      overflow-x: hidden;
+      color: #333;
       position: relative;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Decorative background pattern */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style="stop-color:rgba(255,255,255,0.05);stop-opacity:1" /><stop offset="100%" style="stop-color:rgba(218,165,32,0.03);stop-opacity:1" /></radialGradient><path d="M10 10 L90 10 L90 90 L10 90 Z" fill="url(%23grad1)" /></defs><circle cx="50" cy="50" r="30" fill="none" stroke="rgba(0, 51, 102, 0.05)" stroke-width="1" /><circle cx="20" cy="20" r="2" fill="rgba(218, 165, 32, 0.08)" /><circle cx="80" cy="80" r="2" fill="rgba(218, 165, 32, 0.08)" /><circle cx="50" cy="85" r="2" fill="rgba(0, 51, 102, 0.08)" /></svg>');
+      opacity: 0.7;
+      z-index: -2;
+      background-size: 200px 200px;
+      background-repeat: repeat;
+      pointer-events: none;
     }
 
     /* Floating symbols/equations */
     .symbol {
       position: fixed;
-      font-size: 1.5em;
-      color: rgba(255, 255, 255, 0.3);
+      font-size: 1.6em;
+      color: rgba(255, 255, 255, 0.25);
+      animation: float 15s infinite ease-in-out;
       white-space: nowrap;
       z-index: -1;
-      pointer-events: none;
     }
 
-    /* Floating animations */
-    @keyframes float-up {
-      0% { transform: translateY(0); opacity: 0.8; }
-      50% { transform: translateY(-60px); opacity: 0.4; }
-      100% { transform: translateY(0); opacity: 0.8; }
-    }
-
-    @keyframes float-down {
-      0% { transform: translateY(0); opacity: 0.8; }
-      50% { transform: translateY(60px); opacity: 0.4; }
-      100% { transform: translateY(0); opacity: 0.8; }
-    }
-
-    @keyframes float-left {
-      0% { transform: translateX(0); opacity: 0.8; }
-      50% { transform: translateX(-60px); opacity: 0.4; }
-      100% { transform: translateX(0); opacity: 0.8; }
-    }
-
-    @keyframes float-right {
-      0% { transform: translateX(0); opacity: 0.8; }
-      50% { transform: translateX(60px); opacity: 0.4; }
-      100% { transform: translateX(0); opacity: 0.8; }
-    }
-
-    @keyframes float-diagonal {
-      0% { transform: translate(0,0) rotate(0deg); opacity: 0.8; }
-      50% { transform: translate(60px, -60px) rotate(180deg); opacity: 0.4; }
+    @keyframes float {
+      0%   { transform: translate(0,0) rotate(0deg); opacity: 0.8; }
+      25%  { transform: translate(30px, -40px) rotate(90deg); opacity: 0.5; }
+      50%  { transform: translate(-30px, -20px) rotate(180deg); opacity: 0.4; }
+      75%  { transform: translate(20px, 30px) rotate(270deg); opacity: 0.6; }
       100% { transform: translate(0,0) rotate(360deg); opacity: 0.8; }
     }
 
-    /* Assigning different animations */
-    .up { animation: float-up 10s infinite ease-in-out; }
-    .down { animation: float-down 12s infinite ease-in-out; }
-    .left { animation: float-left 14s infinite ease-in-out; }
-    .right { animation: float-right 16s infinite ease-in-out; }
-    .diagonal { animation: float-diagonal 18s infinite ease-in-out; }
-
-    /* Page container styling (from your earlier code) */
     .page-container {
       max-width: 960px;
       margin: 40px auto;
@@ -98,10 +93,18 @@
       margin-bottom: 20px;
       font-weight: bold;
       text-align: center;
-      background: linear-gradient(90deg,#FFD700 0%,#FFD700 45%,#003366 55%,#001a4d 100%);
+      background: linear-gradient(
+        90deg,
+        #FFD700 0%, 
+        #FFD700 45%, 
+        #003366 55%, 
+        #001a4d 100%
+      );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow:0 0 8px rgba(255,215,0,0.6),0 0 12px rgba(0,51,102,0.8);
+      text-shadow: 
+        0 0 8px rgba(255, 215, 0, 0.6), 
+        0 0 12px rgba(0, 51, 102, 0.8);
     }
 
     h2::after {
@@ -111,7 +114,9 @@
       font-size: 1.3em;
       letter-spacing: 6px;
       color: #FFD700;
-      text-shadow:0px 0px 8px rgba(255,215,0,0.7),0px 0px 12px rgba(0,51,102,0.7);
+      text-shadow: 
+        0px 0px 8px rgba(255, 215, 0, 0.7),
+        0px 0px 12px rgba(0, 51, 102, 0.7);
     }
 
     .tagline {
@@ -125,7 +130,7 @@
     .section-banner-header {
       font-family: 'Great Vibes', cursive;
       color: #003366;
-      font-size: 3em;
+      font-size: 2.8em;
       margin-top: 40px;
       margin-bottom: 25px;
       background: #FFF8DC;
@@ -156,12 +161,37 @@
       border: 2px solid #D2B48C;
     }
 
+    .content-section p, .content-section ul {
+      font-size: 1.2em;
+      line-height: 1.8;
+    }
+
+    .content-section ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .content-section li {
+      margin-bottom: 15px;
+      padding-left: 40px;
+      position: relative;
+    }
+
+    .content-section li::before {
+      content: '\221E';
+      position: absolute;
+      left: 0;
+      color: #DAA520;
+      font-weight: bold;
+      font-size: 1.4em;
+    }
+
     .footer {
       text-align: center;
       margin-top: 60px;
       padding-top: 40px;
       border-top: 3px dashed #8B4513;
-      font-size: 2em;
+      font-size: 1.5em;
       color: #003366;
       font-weight: bold;
       font-family: 'Playfair Display', serif;
@@ -175,34 +205,23 @@
     }
   </style>
 </head>
+
 <body>
+  <!-- Floating math symbols/equations -->
+  <div class="symbol" style="top:10%; left:2%;">∫₀^∞ e<sup>-x²</sup> dx = √π/2</div>
+  <div class="symbol" style="top:30%; left:4%;">limₙ→∞ (1+1/n)ⁿ = e</div>
+  <div class="symbol" style="top:60%; left:3%;">∇·𝐄 = ρ/ε₀</div>
+  <div class="symbol" style="top:80%; left:5%;">ζ(s) = ∑ 1/nˢ</div>
 
-  <!-- Floating math symbols/equations on edges -->
-  <!-- Left bar -->
-  <div class="symbol up" style="top:10%; left:2%;">∫₀^∞ e<sup>-x²</sup> dx = √π/2</div>
-  <div class="symbol down" style="top:30%; left:2%;">limₙ→∞ (1+1/n)ⁿ = e</div>
-  <div class="symbol diagonal" style="top:55%; left:2%;">∇·𝐄 = ρ/ε₀</div>
-  <div class="symbol up" style="top:80%; left:2%;">ζ(s) = ∑ 1/nˢ</div>
-
-  <!-- Right bar -->
-  <div class="symbol down" style="top:15%; right:2%;">iħ ∂ψ/∂t = Ĥψ</div>
-  <div class="symbol up" style="top:40%; right:2%;">det(A - λI) = 0</div>
-  <div class="symbol diagonal" style="top:65%; right:2%;">∮ E·dl = -dΦ/dt</div>
-  <div class="symbol left" style="top:85%; right:2%;">Γ(z) = ∫₀^∞ t<sup>z-1</sup>e<sup>-t</sup>dt</div>
-
-  <!-- Top bar -->
-  <div class="symbol right" style="top:5%; left:20%;">a² + b² = c²</div>
-  <div class="symbol diagonal" style="top:5%; left:50%;">Σ i = n(n+1)/2</div>
-  <div class="symbol left" style="top:5%; left:75%;">π ≈ 3.14159…</div>
-
-  <!-- Bottom bar -->
-  <div class="symbol left" style="bottom:5%; left:25%;">F = ma</div>
-  <div class="symbol right" style="bottom:5%; left:55%;">E = mc²</div>
-  <div class="symbol diagonal" style="bottom:5%; left:75%;">∫ e^x dx = e^x + C</div>
-  <div class="symbol up" style="bottom:5%; right:20%;">∞</div>
+  <div class="symbol" style="top:15%; right:2%;">iħ ∂ψ/∂t = Ĥψ</div>
+  <div class="symbol" style="top:40%; right:4%;">det(A - λI) = 0</div>
+  <div class="symbol" style="top:65%; right:3%;">∮ E·dl = -dΦ/dt</div>
+  <div class="symbol" style="top:85%; right:5%;">Γ(z) = ∫₀^∞ t<sup>z-1</sup>e<sup>-t</sup>dt</div>
+</body>
 
 
-	
+
+<body>
   <div class="page-container">
     <div class="header">
       <img src="https://raw.githubusercontent.com/Yunin-robo/Trinity-Numerica/main/Highres-2-Trinity-School-Lahore-LOGO-1.png" alt="Trinity Numerica 2025 Logo" class="header-logo">
