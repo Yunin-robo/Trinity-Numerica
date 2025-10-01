@@ -7,27 +7,25 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Great+Vibes&display=swap');
 
-  body {
-  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background: linear-gradient(
-    to bottom,
-    #1E3A8A 0%,    /* deep navy top */
-    #FFD54F 12%,   /* yellow tint top */
-    #3B5998 35%,   /* rich blue */
-    #DAA520 55%,   /* golden middle */
-    #3B5998 75%,   /* rich blue again */
-    #FFD54F 88%,   /* yellow tint bottom */
-    #1E3A8A 100%   /* deep navy bottom */
-  );
-  margin: 0;
-  padding: 20px;
-  color: #333;
-  position: relative;
-  overflow-x: hidden;
-}
-
-
-
+    body {
+      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: linear-gradient(
+        to bottom,
+        #1E3A8A 0%,    /* deep navy top */
+        #FFD54F 12%,   /* yellow tint top */
+        #3B5998 35%,   /* rich blue */
+        #DAA520 55%,   /* golden middle */
+        #3B5998 75%,   /* rich blue again */
+        #FFD54F 88%,   /* yellow tint bottom */
+        #1E3A8A 100%   /* deep navy bottom */
+      );
+      margin: 0;
+      padding: 20px;
+      color: #333;
+      position: relative;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
 
     /* Decorative background pattern */
     body::before {
@@ -39,10 +37,26 @@
       height: 100%;
       background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style="stop-color:rgba(255,255,255,0.05);stop-opacity:1" /><stop offset="100%" style="stop-color:rgba(218,165,32,0.03);stop-opacity:1" /></radialGradient><path d="M10 10 L90 10 L90 90 L10 90 Z" fill="url(%23grad1)" /></defs><circle cx="50" cy="50" r="30" fill="none" stroke="rgba(0, 51, 102, 0.05)" stroke-width="1" /><circle cx="20" cy="20" r="2" fill="rgba(218, 165, 32, 0.08)" /><circle cx="80" cy="80" r="2" fill="rgba(218, 165, 32, 0.08)" /><circle cx="50" cy="85" r="2" fill="rgba(0, 51, 102, 0.08)" /></svg>');
       opacity: 0.7;
-      z-index: -1;
+      z-index: -2;
       background-size: 200px 200px;
       background-repeat: repeat;
       pointer-events: none;
+    }
+
+    /* Floating symbols/equations */
+    .symbol {
+      position: fixed;
+      font-size: 1.6em;
+      color: rgba(255, 255, 255, 0.25);
+      animation: float 15s infinite ease-in-out;
+      white-space: nowrap;
+      z-index: -1;
+    }
+
+    @keyframes float {
+      0%   { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+      50%  { transform: translateY(-40px) rotate(180deg); opacity: 0.4; }
+      100% { transform: translateY(0) rotate(360deg); opacity: 0.8; }
     }
 
     .page-container {
@@ -55,6 +69,7 @@
       border-radius: 20px;
       position: relative;
       overflow: hidden;
+      z-index: 1;
     }
 
     .header {
@@ -70,45 +85,37 @@
       margin-bottom: 20px;
     }
 
-  h2 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 4.5em;
-  margin-bottom: 20px;
-  font-weight: bold;
-  text-align: center;
+    h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4.5em;
+      margin-bottom: 20px;
+      font-weight: bold;
+      text-align: center;
+      background: linear-gradient(
+        90deg,
+        #FFD700 0%, 
+        #FFD700 45%, 
+        #003366 55%, 
+        #001a4d 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 
+        0 0 8px rgba(255, 215, 0, 0.6), 
+        0 0 12px rgba(0, 51, 102, 0.8);
+    }
 
-  /* Half gold, half dark blue gradient */
-  background: linear-gradient(
-    90deg,
-    #FFD700 0%,      /* gold start */
-    #FFD700 45%,     /* gold covers nearly half */
-    #003366 55%,     /* dark blue starts just after */
-    #001a4d 100%     /* deeper blue fade */
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  /* Glow effect */
-  text-shadow: 
-    0 0 8px rgba(255, 215, 0, 0.6), 
-    0 0 12px rgba(0, 51, 102, 0.8);
-}
-
-h2::after {
-  content: "✦ ✧ ✦";
-  display: block;
-  margin-top: 12px;
-  font-size: 1.3em;
-  letter-spacing: 6px;
-  color: #FFD700;
-  text-shadow: 
-    0px 0px 8px rgba(255, 215, 0, 0.7),
-    0px 0px 12px rgba(0, 51, 102, 0.7);
-}
-
-
-
-
+    h2::after {
+      content: "✦ ✧ ✦";
+      display: block;
+      margin-top: 12px;
+      font-size: 1.3em;
+      letter-spacing: 6px;
+      color: #FFD700;
+      text-shadow: 
+        0px 0px 8px rgba(255, 215, 0, 0.7),
+        0px 0px 12px rgba(0, 51, 102, 0.7);
+    }
 
     .tagline {
       font-size: 1.6em;
@@ -118,7 +125,6 @@ h2::after {
       margin-top: 15px;
     }
 
-    /* Section Headers → Script Style */
     .section-banner-header {
       font-family: 'Great Vibes', cursive;
       color: #003366;
@@ -197,6 +203,23 @@ h2::after {
     }
   </style>
 </head>
+<body>
+
+  <!-- Floating math symbols/equations -->
+  <div class="symbol" style="top:10%; left:2%;">∫₀^∞ e<sup>-x²</sup> dx = √π/2</div>
+  <div class="symbol" style="top:30%; left:4%;">limₙ→∞ (1+1/n)ⁿ = e</div>
+  <div class="symbol" style="top:60%; left:3%;">∇·𝐄 = ρ/ε₀</div>
+  <div class="symbol" style="top:80%; left:5%;">ζ(s) = ∑ 1/nˢ</div>
+
+  <div class="symbol" style="top:15%; right:2%;">iħ ∂ψ/∂t = Ĥψ</div>
+  <div class="symbol" style="top:40%; right:4%;">det(A - λI) = 0</div>
+  <div class="symbol" style="top:65%; right:3%;">∮ E·dl = -dΦ/dt</div>
+  <div class="symbol" style="top:85%; right:5%;">Γ(z) = ∫₀^∞ t<sup>z-1</sup>e<sup>-t</sup>dt</div>
+
+
+</body>
+
+
 
 <body>
   <div class="page-container">
