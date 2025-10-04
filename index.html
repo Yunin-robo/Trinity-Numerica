@@ -7,27 +7,36 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Great+Vibes&display=swap');
 
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       background: linear-gradient(
         to bottom,
-        #1E3A8A 0%,    /* deep navy top */
-        #FFD54F 12%,   /* yellow tint top */
-        #3B5998 35%,   /* rich blue */
-        #DAA520 55%,   /* golden middle */
-        #3B5998 75%,   /* rich blue again */
-        #FFD54F 88%,   /* yellow tint bottom */
-        #1E3A8A 100%   /* deep navy bottom */
+        #1E3A8A 0%,
+        #FFD54F 12%,
+        #3B5998 35%,
+        #DAA520 55%,
+        #3B5998 75%,
+        #FFD54F 88%,
+        #1E3A8A 100%
       );
       margin: 0;
-      padding: 20px;
+      padding: 10px;
       color: #333;
       position: relative;
       overflow-x: hidden;
       min-height: 100vh;
     }
 
-    /* Decorative background pattern */
+    @media (min-width: 768px) {
+      body {
+        padding: 20px;
+      }
+    }
+
     body::before {
       content: '';
       position: fixed;
@@ -43,14 +52,20 @@
       pointer-events: none;
     }
 
-    /* Floating symbols/equations */
     .symbol {
       position: fixed;
-      font-size: 1.6em;
+      font-size: clamp(0.8em, 1.2vw, 1.6em);
       color: rgba(255, 255, 255, 0.25);
       animation: float 15s infinite ease-in-out;
       white-space: nowrap;
       z-index: -1;
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .symbol {
+        display: block;
+      }
     }
 
     @keyframes float {
@@ -63,34 +78,59 @@
 
     .page-container {
       max-width: 960px;
-      margin: 40px auto;
-      padding: 50px;
+      margin: 20px auto;
+      padding: 20px;
       background-color: #FFF8DC;
-      border: 5px solid #DAA520;
+      border: 3px solid #DAA520;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-      border-radius: 20px;
+      border-radius: 15px;
       position: relative;
       overflow: hidden;
       z-index: 1;
     }
 
+    @media (min-width: 768px) {
+      .page-container {
+        margin: 40px auto;
+        padding: 50px;
+        border: 5px solid #DAA520;
+        border-radius: 20px;
+      }
+    }
+
     .header {
       text-align: center;
-      margin-bottom: 50px;
-      padding-bottom: 30px;
-      border-bottom: 3px dashed #8B4513;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 2px dashed #8B4513;
+    }
+
+    @media (min-width: 768px) {
+      .header {
+        margin-bottom: 50px;
+        padding-bottom: 30px;
+        border-bottom: 3px dashed #8B4513;
+      }
     }
 
     .header-logo {
-      max-width: 300px;
+      max-width: 200px;
+      width: 100%;
       height: auto;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
+    }
+
+    @media (min-width: 768px) {
+      .header-logo {
+        max-width: 300px;
+        margin-bottom: 20px;
+      }
     }
 
     h2 {
       font-family: 'Great Vibes', cursive;
-      font-size: 4.5em;
-      margin-bottom: 20px;
+      font-size: clamp(2.5em, 7vw, 4.5em);
+      margin-bottom: 15px;
       font-weight: bold;
       text-align: center;
       background: linear-gradient(
@@ -107,63 +147,114 @@
         0 0 12px rgba(0, 51, 102, 0.8);
     }
 
+    @media (min-width: 768px) {
+      h2 {
+        margin-bottom: 20px;
+      }
+    }
+
     h2::after {
       content: "✦ ✧ ✦";
       display: block;
-      margin-top: 12px;
-      font-size: 1.3em;
-      letter-spacing: 6px;
+      margin-top: 10px;
+      font-size: clamp(0.8em, 2vw, 1.3em);
+      letter-spacing: 4px;
       color: #FFD700;
       text-shadow: 
         0px 0px 8px rgba(255, 215, 0, 0.7),
         0px 0px 12px rgba(0, 51, 102, 0.7);
     }
 
+    @media (min-width: 768px) {
+      h2::after {
+        margin-top: 12px;
+        letter-spacing: 6px;
+      }
+    }
+
     .tagline {
-      font-size: 1.6em;
+      font-size: clamp(1.1em, 3vw, 1.6em);
       color: #003366;
       font-style: italic;
       font-family: 'Playfair Display', serif;
-      margin-top: 15px;
+      margin-top: 10px;
+    }
+
+    @media (min-width: 768px) {
+      .tagline {
+        margin-top: 15px;
+      }
     }
 
     .section-banner-header {
       font-family: 'Great Vibes', cursive;
       color: #003366;
-      font-size: 2.8em;
-      margin-top: 40px;
-      margin-bottom: 25px;
+      font-size: clamp(1.8em, 5vw, 2.8em);
+      margin-top: 30px;
+      margin-bottom: 20px;
       background: #FFF8DC;
-      border: 4px solid #DAA520;
-      border-radius: 10px;
-      padding: 15px 20px;
+      border: 3px solid #DAA520;
+      border-radius: 8px;
+      padding: 12px 15px;
       text-align: center;
       box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     }
 
+    @media (min-width: 768px) {
+      .section-banner-header {
+        margin-top: 40px;
+        margin-bottom: 25px;
+        border: 4px solid #DAA520;
+        border-radius: 10px;
+        padding: 15px 20px;
+      }
+    }
+
     .subtitle {
       font-family: 'Playfair Display', serif;
-      font-size: 1.7em;
+      font-size: clamp(1.3em, 3.5vw, 1.7em);
       color: #5C4033;
       font-weight: bold;
-      margin-top: 25px;
+      margin-top: 20px;
       margin-bottom: 10px;
-      padding-left: 10px;
-      border-left: 5px solid #DAA520;
+      padding-left: 8px;
+      border-left: 4px solid #DAA520;
+    }
+
+    @media (min-width: 768px) {
+      .subtitle {
+        margin-top: 25px;
+        padding-left: 10px;
+        border-left: 5px solid #DAA520;
+      }
     }
 
     .content-section {
       background-color: rgba(255, 255, 255, 0.98);
-      padding: 40px;
-      margin-bottom: 35px;
-      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 25px;
+      border-radius: 10px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
       border: 2px solid #D2B48C;
     }
 
+    @media (min-width: 768px) {
+      .content-section {
+        padding: 40px;
+        margin-bottom: 35px;
+        border-radius: 12px;
+      }
+    }
+
     .content-section p, .content-section ul {
-      font-size: 1.2em;
-      line-height: 1.8;
+      font-size: clamp(1em, 2.5vw, 1.2em);
+      line-height: 1.7;
+    }
+
+    @media (min-width: 768px) {
+      .content-section p, .content-section ul {
+        line-height: 1.8;
+      }
     }
 
     .content-section ul {
@@ -172,9 +263,16 @@
     }
 
     .content-section li {
-      margin-bottom: 15px;
-      padding-left: 40px;
+      margin-bottom: 12px;
+      padding-left: 30px;
       position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .content-section li {
+        margin-bottom: 15px;
+        padding-left: 40px;
+      }
     }
 
     .content-section li::before {
@@ -183,26 +281,327 @@
       left: 0;
       color: #DAA520;
       font-weight: bold;
-      font-size: 1.4em;
+      font-size: 1.3em;
+    }
+
+    @media (min-width: 768px) {
+      .content-section li::before {
+        font-size: 1.4em;
+      }
     }
 
     .footer {
       text-align: center;
-      margin-top: 60px;
-      padding-top: 40px;
-      border-top: 3px dashed #8B4513;
-      font-size: 1.5em;
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 2px dashed #8B4513;
+      font-size: clamp(1.2em, 3vw, 1.5em);
       color: #003366;
       font-weight: bold;
       font-family: 'Playfair Display', serif;
     }
 
+    @media (min-width: 768px) {
+      .footer {
+        margin-top: 60px;
+        padding-top: 40px;
+        border-top: 3px dashed #8B4513;
+      }
+    }
+
     .footer-contact-info {
-      margin-top: 20px;
-      font-size: 1em;
+      margin-top: 15px;
+      font-size: clamp(0.9em, 2.2vw, 1em);
       color: #5C4033;
       font-family: 'Lato', sans-serif;
     }
+
+    @media (min-width: 768px) {
+      .footer-contact-info {
+        margin-top: 20px;
+      }
+    }
+
+    .footer-contact-info p {
+      margin: 8px 0;
+    }
+
+    .register-button {
+      display: inline-block;
+      background-color: #003366;
+      color: #fff;
+      padding: 12px 20px;
+      font-size: clamp(1em, 2.5vw, 1.2em);
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    @media (min-width: 768px) {
+      .register-button {
+        padding: 12px 25px;
+      }
+    }
+
+    .register-button:hover {
+      background-color: #002244;
+      transform: translateY(-2px);
+    }
+
+    .register-button:active {
+      transform: translateY(0);
+    }
+
+    /* Fade-in animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes bounceIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.3);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+      70% {
+        transform: scale(0.9);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes rotateIn {
+      from {
+        opacity: 0;
+        transform: rotate(-10deg) scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+      }
+    }
+
+    @keyframes flipIn {
+      from {
+        opacity: 0;
+        transform: perspective(400px) rotateY(-90deg);
+      }
+      to {
+        opacity: 1;
+        transform: perspective(400px) rotateY(0);
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Apply animations to elements */
+    .header {
+      animation: fadeInDown 0.8s ease-out;
+    }
+
+    .header-logo {
+      animation: fadeInScale 1s ease-out 0.2s both;
+    }
+
+    h2 {
+      animation: fadeInUp 0.8s ease-out 0.3s both;
+    }
+
+    .tagline {
+      animation: fadeInUp 0.8s ease-out 0.5s both;
+    }
+
+    /* Scroll-triggered animations - initially hidden */
+    .content-section {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .content-section.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Different animation styles for each section */
+    .content-section[data-anim="fade-up"].animate {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .content-section[data-anim="slide-left"].animate {
+      animation: slideInLeft 0.8s ease-out forwards;
+    }
+
+    .content-section[data-anim="slide-right"].animate {
+      animation: slideInRight 0.8s ease-out forwards;
+    }
+
+    .content-section[data-anim="bounce"].animate {
+      animation: bounceIn 0.9s ease-out forwards;
+    }
+
+    .content-section[data-anim="rotate"].animate {
+      animation: rotateIn 0.8s ease-out forwards;
+    }
+
+    .content-section[data-anim="flip"].animate {
+      animation: flipIn 0.8s ease-out forwards;
+    }
+
+    .content-section[data-anim="zoom"].animate {
+      animation: zoomIn 0.7s ease-out forwards;
+    }
+
+    .content-section[data-anim="scale"].animate {
+      animation: fadeInScale 0.8s ease-out forwards;
+    }
+
+    .section-banner-header {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .content-section.animate .section-banner-header {
+      opacity: 1;
+      transform: translateX(0);
+      transition-delay: 0.2s;
+    }
+
+    .subtitle {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    .content-section.animate .subtitle {
+      opacity: 1;
+      transform: translateX(0);
+      transition-delay: 0.3s;
+    }
+
+    .content-section p,
+    .content-section ul {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    .content-section.animate p,
+    .content-section.animate ul {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.4s;
+    }
+
+    .footer {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .footer.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .register-button {
+      opacity: 0;
+      transform: scale(0.8);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .content-section.animate .register-button {
+      opacity: 1;
+      transform: scale(1);
+      transition-delay: 0.6s;
+    }
+
+    /* Stagger animation for list items */
+    .content-section li {
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    }
+
+    .content-section.animate li {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .content-section.animate li:nth-child(1) { transition-delay: 0.5s; }
+    .content-section.animate li:nth-child(2) { transition-delay: 0.6s; }
+    .content-section.animate li:nth-child(3) { transition-delay: 0.7s; }
+    .content-section.animate li:nth-child(4) { transition-delay: 0.8s; }
+    .content-section.animate li:nth-child(5) { transition-delay: 0.9s; }
+    .content-section.animate li:nth-child(6) { transition-delay: 1s; }
+    .content-section.animate li:nth-child(7) { transition-delay: 1.1s; }
   </style>
 </head>
 
@@ -217,11 +616,37 @@
   <div class="symbol" style="top:40%; right:4%;">det(A - λI) = 0</div>
   <div class="symbol" style="top:65%; right:3%;">∮ E·dl = -dΦ/dt</div>
   <div class="symbol" style="top:85%; right:5%;">Γ(z) = ∫₀^∞ t<sup>z-1</sup>e<sup>-t</sup>dt</div>
-</body>
 
+  <script>
+    // Intersection Observer for scroll-triggered animations
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    };
 
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
 
-<body>
+    // Observe all content sections and footer on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('.content-section');
+      const footer = document.querySelector('.footer');
+      
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+      
+      if (footer) {
+        observer.observe(footer);
+      }
+    });
+  </script>
+
   <div class="page-container">
     <div class="header">
       <img src="https://raw.githubusercontent.com/Yunin-robo/Trinity-Numerica/main/Highres-2-Trinity-School-Lahore-LOGO-1.png" alt="Trinity Numerica 2025 Logo" class="header-logo">
@@ -229,186 +654,177 @@
       <p class="tagline">Celebrating Mathematical Excellence</p>
     </div>
 	
-<div class="content-section">
-  <h3 class="section-banner-header">Invitation Letter</h3>
+    <div class="content-section" style="--section-index: 0;" data-anim="fade-up">
+      <h3 class="section-banner-header">Invitation Letter</h3>
 
-  <p>Dear Students,</p>
+      <p>Dear Students,</p>
 
-  <p>
-    It gives me great pleasure to invite you to the <strong>Trinity Intra-School Math Competition</strong>. 
-    At Trinity, we believe mathematics is not only about numbers but also about building 
-    problem-solving skills, logical reasoning, and a spirit of healthy competition.
-  </p>
+      <p>
+        It gives me great pleasure to invite you to the <strong>Trinity Intra-School Math Competition</strong>. 
+        At Trinity, we believe mathematics is not only about numbers but also about building 
+        problem-solving skills, logical reasoning, and a spirit of healthy competition.
+      </p>
 
-  <p>
-    This event is designed to challenge our students, encourage collaboration, 
-    and showcase the talent and creativity that exists within our school. 
-    I look forward to seeing our young mathematicians engage with enthusiasm 
-    and make us proud with their efforts.
-  </p>
+      <p>
+        This event is designed to challenge our students, encourage collaboration, 
+        and showcase the talent and creativity that exists within our school. 
+        I look forward to seeing our young mathematicians engage with enthusiasm 
+        and make us proud with their efforts.
+      </p>
 
-  <p>
-    Let this competition be a celebration of curiosity, perseverance, 
-    and the joy of learning.
-  </p>
+      <p>
+        Let this competition be a celebration of curiosity, perseverance, 
+        and the joy of learning.
+      </p>
 
-  <div style="margin-top: 40px;">
-    <p>Sincerely,</p>
-    <p><strong>Taimur K. Bandey</strong><br>Head of School</p>
-  </div>
-</div>
+      <div style="margin-top: 30px;">
+        <p>Sincerely,</p>
+        <p><strong>Taimur K. Bandey</strong><br>Head of School</p>
+      </div>
+    </div>
 
-
-    <div class="content-section">
+    <div class="content-section" style="--section-index: 1;" data-anim="slide-left">
       <h3 class="section-banner-header">Competition Categories & Format</h3>
 
-      <h4 class="subtitle">Junior Division PYP(3-5) </h4>
+      <h4 class="subtitle">Junior Division PYP(3-5)</h4>
       <ul>
-        <li>Buzzer Round (x3): Fun mental math and puzzles. +10 for correct, -5 for wrong.</li>
-        <li>Rapid Fire Round: 2 minutes per team. +10 per correct, no negatives.</li>
+        <li style="--item-index: 0;">Buzzer Round (x3): Fun mental math and puzzles. +10 for correct, -5 for wrong.</li>
+        <li style="--item-index: 1;">Rapid Fire Round: 2 minutes per team. +10 per correct, no negatives.</li>
       </ul>
 
       <h4 class="subtitle">Intermediate Division MYP(6-8)</h4>
       <ul>
-        <li>Written Test: 20–25 IQ & logical reasoning questions. Top scorers form finalist teams.</li>
-        <li>Final Rapid Fire: 2 minutes per team. +10 per correct, no negatives.</li>
+        <li style="--item-index: 2;">Written Test: 20–25 IQ & logical reasoning questions. Top scorers form finalist teams.</li>
+        <li style="--item-index: 3;">Final Rapid Fire: 2 minutes per team. +10 per correct, no negatives.</li>
       </ul>
 
       <h4 class="subtitle">Advanced Division (O/A Levels, DP & High School)</h4>
       <ul>
-        <li>Research Challenge: Teams solve an open-ended math problem and present findings.</li>
-        <li>Presentation & Opposition: Debate-style critique with Reporter, Opponent, Reviewer, Observer roles.</li>
-        <li>Final Rapid Fire: 120 seconds per team. +10 per correct, no negatives.</li>
+        <li style="--item-index: 4;">Research Challenge: Teams solve an open-ended math problem and present findings.</li>
+        <li style="--item-index: 5;">Presentation & Opposition: Debate-style critique with Reporter, Opponent, Reviewer, Observer roles.</li>
+        <li style="--item-index: 6;">Final Rapid Fire: 120 seconds per team. +10 per correct, no negatives.</li>
       </ul>
     </div>
 
-    <div class="content-section">
-  <h3 class="section-banner-header">Advance Division Structure</h3>
-  
-  <p><strong>Team Formation:</strong> A team consists of 3 to 4 students.</p>
-  
-  <p><strong>Problem Release:</strong> 3 challenging math problems of varying difficulty are provided to the teams two-three weeks before the competition:</p>
-  <ul>
-    <li><strong>Level 1:</strong> For O1, O2, 9th, and 10th</li>
-    <li><strong>Level 2:</strong> For O3, 10th, 11th</li>
-    <li><strong>Level 3:</strong> For A1, A2, 12th, DP</li>
-  </ul>
+    <div class="content-section" style="--section-index: 2;" data-anim="slide-right">
+      <h3 class="section-banner-header">Advance Division Structure</h3>
+      
+      <p><strong>Team Formation:</strong> A team consists of 3 to 4 students.</p>
+      
+      <p><strong>Problem Release:</strong> 3 challenging math problems of varying difficulty are provided to the teams two-three weeks before the competition:</p>
+      <ul>
+        <li style="--item-index: 0;"><strong>Level 1:</strong> For O1, O2, 9th, and 10th</li>
+        <li style="--item-index: 1;"><strong>Level 2:</strong> For O3, 10th, 11th</li>
+        <li style="--item-index: 2;"><strong>Level 3:</strong> For A1, A2, 12th, DP</li>
+      </ul>
 
-  <p><strong>Solution Preparation:</strong> Teams must prepare detailed solutions to these problems in advance of the competitions.</p>
+      <p><strong>Solution Preparation:</strong> Teams must prepare detailed solutions to these problems in advance of the competitions.</p>
 
-  <p><strong>Research Debates:</strong> The core of the tournament involves structured research debates where teams take turns in specific roles.</p>
+      <p><strong>Research Debates:</strong> The core of the tournament involves structured research debates where teams take turns in specific roles.</p>
 
-  <h4 class="subtitle">Roles in Debate Rounds</h4>
-  <ul>
-    <li><strong>Reporter:</strong> Presents the main ideas and results obtained from solving the problem.</li>
-    <li><strong>Opponent:</strong> Analyzes the Reporter's solution, pointing out inaccuracies and errors in the paper and presentation.</li>
-    <li><strong>Reviewer:</strong> Evaluates the performance of both the Reporter and the Opponent.</li>
-    <li><strong>Observer:</strong> Makes important remarks or observations that may have been missed by the other roles.</li>
-  </ul>
-</div>
+      <h4 class="subtitle">Roles in Debate Rounds</h4>
+      <ul>
+        <li style="--item-index: 3;"><strong>Reporter:</strong> Presents the main ideas and results obtained from solving the problem.</li>
+        <li style="--item-index: 4;"><strong>Opponent:</strong> Analyzes the Reporter's solution, pointing out inaccuracies and errors in the paper and presentation.</li>
+        <li style="--item-index: 5;"><strong>Reviewer:</strong> Evaluates the performance of both the Reporter and the Opponent.</li>
+        <li style="--item-index: 6;"><strong>Observer:</strong> Makes important remarks or observations that may have been missed by the other roles.</li>
+      </ul>
+    </div>
 
+    <div class="content-section" style="--section-index: 3;" data-anim="bounce">
+      <h3 class="section-banner-header">Objectives</h3>
 
-    <div class="content-section">
-  <h3 class="section-banner-header">Objectives</h3>
+      <p><strong>Stimulate Interest in Mathematics:</strong> To foster interest in mathematics and its applications.</p>
 
-  <p><strong>Stimulate Interest in Mathematics:</strong> To foster interest in mathematics and its applications.</p>
+      <p><strong>Develop Skills:</strong> To cultivate scientific thinking, communication skills, and teamwork among students.</p>
 
-  <p><strong>Develop Skills:</strong> To cultivate scientific thinking, communication skills, and teamwork among students.</p>
+      <p><strong>Promote Exchange:</strong> To support social and cultural exchange between high school students in a stimulating environment.</p>
+    </div>
 
-  <p><strong>Promote Exchange:</strong> To support social and cultural exchange between high school students in a stimulating environment.</p>
-</div>
-
-
-    <div class="content-section">
+    <div class="content-section" style="--section-index: 4;" data-anim="rotate">
       <h3 class="section-banner-header">Scoring System</h3>
       <ul>
-        <li><strong>Junior:</strong> Buzzer 50%, Rapid Fire 50%</li>
-        <li><strong>Intermediate:</strong> Written Test 60%, Rapid Fire 40%</li>
-        <li><strong>Advanced:</strong> Research 50%, Presentation/Opposition 30%, Rapid Fire 20%</li>
+        <li style="--item-index: 0;"><strong>Junior:</strong> Buzzer 50%, Rapid Fire 50%</li>
+        <li style="--item-index: 1;"><strong>Intermediate:</strong> Written Test 60%, Rapid Fire 40%</li>
+        <li style="--item-index: 2;"><strong>Advanced:</strong> Research 50%, Presentation/Opposition 30%, Rapid Fire 20%</li>
       </ul>
     </div>
 
-    <div class="content-section">
+    <div class="content-section" style="--section-index: 5;" data-anim="flip">
       <h3 class="section-banner-header">Competition Schedule</h3>
       <ul>
-        <li><strong>Day 1 – Friday, 24th Oct 2025:</strong> Junior & Intermediate Rounds</li>
-        <li><strong>Day 2 – Saturday, 25th Oct 2025:</strong> Advanced Division</li>
-        <li><strong>Award Ceremony – Tuesday, 28th Oct 2025:</strong> Trophies + Certificates</li>
+        <li style="--item-index: 0;"><strong>Day 1 – Friday, 24th Oct 2025:</strong> Junior & Intermediate Rounds</li>
+        <li style="--item-index: 1;"><strong>Day 2 – Saturday, 25th Oct 2025:</strong> Advanced Division</li>
+        <li style="--item-index: 2;"><strong>Award Ceremony – Tuesday, 28th Oct 2025:</strong> Trophies + Certificates</li>
       </ul>
     </div>
 
-    <div class="content-section">
-  <h3 class="section-banner-header">Code of Conduct</h3>
-  <p>To ensure a fair, respectful, and productive environment for all participants and staff, the following code of conduct must be observed:</p>
-  <p><strong>Respect:</strong> Treat all participants, organizers, judges, and staff with courtesy and respect.</p>
-  <p><strong>Integrity:</strong> Uphold the highest standards of academic honesty. Cheating, plagiarism, or any form of academic dishonesty will not be tolerated and may result in disqualification.</p>
-  <p><strong>Sportsmanship:</strong> Engage in fair play and demonstrate good sportsmanship at all times. Celebrate success and handle challenges with grace.</p>
-  <p><strong>Adherence to Rules:</strong> Follow all competition rules, instructions, and schedules provided by the organizers.</p>
-  <p><strong>Appropriate Conduct:</strong> Maintain a respectful and conducive environment for learning and competition. Avoid disruptive behavior.</p>
-  <p><strong>Use of Resources:</strong> Use only permitted resources during competition rounds. Unauthorized materials or devices are strictly forbidden.</p>
-</div>
+    <div class="content-section" style="--section-index: 6;" data-anim="zoom">
+      <h3 class="section-banner-header">Code of Conduct</h3>
+      <p>To ensure a fair, respectful, and productive environment for all participants and staff, the following code of conduct must be observed:</p>
+      <p><strong>Respect:</strong> Treat all participants, organizers, judges, and staff with courtesy and respect.</p>
+      <p><strong>Integrity:</strong> Uphold the highest standards of academic honesty. Cheating, plagiarism, or any form of academic dishonesty will not be tolerated and may result in disqualification.</p>
+      <p><strong>Sportsmanship:</strong> Engage in fair play and demonstrate good sportsmanship at all times. Celebrate success and handle challenges with grace.</p>
+      <p><strong>Adherence to Rules:</strong> Follow all competition rules, instructions, and schedules provided by the organizers.</p>
+      <p><strong>Appropriate Conduct:</strong> Maintain a respectful and conducive environment for learning and competition. Avoid disruptive behavior.</p>
+      <p><strong>Use of Resources:</strong> Use only permitted resources during competition rounds. Unauthorized materials or devices are strictly forbidden.</p>
+    </div>
+	 <div class="content-section" style="--section-index: 8;">
+      <h3 class="section-banner-header">Registration Rules</h3>
+      <ul>
+        <li style="--item-index: 0;">Students may participate individually or as part of a team.</li>
 
-<div class="content-section">
-  <h3 class="section-banner-header">Registration</h3>
-  
-  <p><strong>Early Bird Registration:</strong> PKR 500<br>
-  <em>Deadline: 15th October 2025</em></p>
-
-  <p><strong>Regular Registration:</strong> PKR 800<br>
-  <em>Deadline: 20th October 2025</em></p>
-
-  <p><strong>How to Register:</strong> Please complete the registration form using the link below:</p>
-  
-  <p style="text-align: center; margin-top: 25px;">
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLScl0mt7LqyclN3u2e9tLT4V5o1PYyQzW_uLcBNsDyuxLZ76rw/viewform?usp=header" target="_blank" 
-       style="display: inline-block; background-color: #003366; color: #fff; 
-              padding: 12px 25px; font-size: 1.2em; font-weight: bold; 
-              border-radius: 8px; text-decoration: none; 
-              box-shadow: 0 5px 12px rgba(0,0,0,0.2); 
-              transition: background-color 0.3s ease;">
-      📝 Register Here
-    </a>
-  </p>
-</div>
-
-<div class="content-section">
-  <h3 class="section-banner-header">Registration Rules</h3>
-  <ul>
-    <li>Students may participate individually or as part of a team.</li>
-
-        <li><strong>Payment Method:</strong><br>
+        <li style="--item-index: 1;"><strong>Payment Method:</strong><br>
             Payment should be made <strong>by CASH ONLY</strong>.<br>
             Submit the amount at the school account office, where you will receive an official <strong>payment slip</strong>.
         </li>
 
-        <li><strong>Individual Participation:</strong><br>
+        <li style="--item-index: 2;"><strong>Individual Participation:</strong><br>
             If participating individually, the registration fee must be submitted per participant.
         </li>
 
-        <li><strong>Team Participation:</strong><br>
+        <li style="--item-index: 3;"><strong>Team Participation:</strong><br>
             If participating as a team, each member must pay their registration fee individually.<br>
             All payments should then be combined and submitted together as a team.
         </li>
 
-        <li><strong>Proof of Payment:</strong><br>
+        <li style="--item-index: 4;"><strong>Proof of Payment:</strong><br>
             At the time of registration, participants must <strong>upload the payment slip</strong> received from the school account office as proof of fee submission.
         </li>
 
-        <li><strong>Confirmation:</strong><br>
+        <li style="--item-index: 5;"><strong>Confirmation:</strong><br>
             You will only be allowed to participate once the registration fee is confirmed and will be added to the WhatsApp group.
         </li>
-  </ul>
-</div>
+      </ul>
+    </div>
 
+    <div class="content-section" style="--section-index: 7;">
+      <h3 class="section-banner-header">Registration</h3>
+      
+      <p><strong>Early Bird Registration:</strong> PKR 500<br>
+      <em>Deadline: 15th October 2025</em></p>
 
+      <p><strong>Regular Registration:</strong> PKR 800<br>
+      <em>Deadline: 20th October 2025</em></p>
+
+      <p><strong>How to Register:</strong> Please complete the registration form using the link below:</p>
+      
+      <p style="text-align: center; margin-top: 25px;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScl0mt7LqyclN3u2e9tLT4V5o1PYyQzW_uLcBNsDyuxLZ76rw/viewform?usp=header" target="_blank" class="register-button">
+          📝 Register Here
+        </a>
+      </p>
+    </div>
+
+   
 
     <div class="footer">
       Good Luck to All Participants!
       <div class="footer-contact-info">
-        <p><strong>Contact:</strong> </p>
-        <p><strong>President:</strong> Fasi-Ur-Rehman </p>
+        <p><strong>Contact:</strong></p>
+        <p><strong>President:</strong> Fasi-Ur-Rehman</p>
         <p>📞 +92 3304233094</p>
-        <p><strong>Vice-President:</strong> Ajar Aleem </p>
+        <p><strong>Vice-President:</strong> Ajar Aleem</p>
         <p>📞 +92 3291189909</p>
       </div>
     </div>
